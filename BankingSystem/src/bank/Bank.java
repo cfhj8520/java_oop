@@ -177,8 +177,9 @@ public class Bank {
                 System.out.println("존재하지 않은 계좌이거나 잘못 입력하셨습니다. 다시 입력 부탁드리겠습니다.");
             }else if(fromAcc == toAcc){
                 System.out.println("\n본인 계좌로의 송금은 입금을 이용해주세요.");
-            }else if(toAcc.getCategory().equals("S")){
+            }else if(fromAcc.getCategory().equals("S")){
                 System.out.println("\n적금 계좌로는 송금이 불가합니다.");
+                return;
             }else{
                 break;
             }
