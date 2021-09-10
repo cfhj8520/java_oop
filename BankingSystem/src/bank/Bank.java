@@ -151,16 +151,16 @@ public class Bank {
         //TODO: 송금 메서드 구현
         // 잘못 입력하거나 예외처리시 다시 입력가능하도록
 
-        Account from_acc = null;
-        Account to_acc = null;
+        Account fromAcc = null;
+        Account toAcc = null;
 
         while(true) {
             //TODO
             System.out.println("\n송금하시려는 계좌번호를 입력해주세요.");
             String input = scanner.next();
-            from_acc = findAccount(input);
+            fromAcc = findAccount(input);
 
-            if(from_acc != null){
+            if(fromAcc != null){
                 break;
             }
 
@@ -171,13 +171,13 @@ public class Bank {
             //TODO
             System.out.println("\n어느 계좌번호로 보내시려나요?");
             String input = scanner.next();
-            to_acc = findAccount(input);
+            toAcc = findAccount(input);
 
-            if(to_acc == null){
+            if(toAcc == null){
                 System.out.println("존재하지 않은 계좌이거나 잘못 입력하셨습니다. 다시 입력 부탁드리겠습니다.");
-            }else if(from_acc == to_acc){
+            }else if(fromAcc == toAcc){
                 System.out.println("\n본인 계좌로의 송금은 입금을 이용해주세요.");
-            }else if(to_acc.getCategory().equals("S")){
+            }else if(toAcc.getCategory().equals("S")){
                 System.out.println("\n적금 계좌로는 송금이 불가합니다.");
             }else{
                 break;
@@ -187,16 +187,16 @@ public class Bank {
 
         while(true) {
             try{
-                System.out.printf("\n송금할 금액을 입력하세요. 계좌 잔액: %s\n",from_acc.getBalance());
+                System.out.printf("\n송금할 금액을 입력하세요. 계좌 잔액: %s\n",fromAcc.getBalance());
                 int input = scanner.nextInt();
                 BigDecimal transfer = new BigDecimal(input);
 
-                if(!check_value(input, from_acc)){
+                if(!check_value(input, fromAcc)){
                     continue;
                 }
 
-                from_acc.setBalance(from_acc.getBalance().subtract(transfer));
-                to_acc.setBalance(to_acc.getBalance().add(transfer));
+                fromAcc.setBalance(fromAcc.getBalance().subtract(transfer));
+                toAcc.setBalance(toAcc.getBalance().add(transfer));
 
                 break;
             }catch (Exception e){
