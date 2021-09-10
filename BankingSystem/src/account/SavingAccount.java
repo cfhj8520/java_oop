@@ -11,7 +11,6 @@ public class SavingAccount extends Account{
 
     public SavingAccount(){
         //TODO: 카테고리를 S로 설정해 줍니다.
-        super();
         super.setCategory("S");
     }
 
