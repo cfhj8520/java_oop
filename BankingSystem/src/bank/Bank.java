@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Bank {
     //TODO: Bank 클래스는 출금, 입금, 송금, 계좌 생성, 계좌 검색 기능들을 갖고 있습니다.
     protected static Scanner scanner = new Scanner(System.in);
-    protected static int seq = 0;
+    protected static int seq = 1;
     public static DecimalFormat df = new DecimalFormat("#,###");
 
     // 뱅킹 시스템의 기능들
